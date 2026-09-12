@@ -6,23 +6,34 @@
 
 寫給熟悉 GPT、平常使用 Codex，卻對 Spark、Sunburst、Flare 等名字感到陌生的人。
 
-## 先看這張 Mental Map
+## Mental Map｜用途對應哪些模型？
 
-模型會因為**任務、輸入輸出與反應速度**的需求而分化。以下依用途整理成三條路，方便理解；這是本文的閱讀地圖，並非 OpenAI 的正式組織或完整產品線分類。
+**每格一起看「用途＋代表模型」**，先找到你感興趣的分支，再往下展開使用方式。
 
 ```mermaid
 flowchart LR
-    ROOT["模型替產品做什麼？"] --> MAKE["製作成品"]
-    ROOT --> TALK["即時互動"]
-    ROOT --> UNDERSTAND["理解與判斷"]
-    MAKE --> CODE["程式開發"]
-    MAKE --> IMAGE["圖片生成與編輯"]
-    TALK --> VOICE["語音對話"]
-    TALK --> TRANSLATE["即時翻譯"]
-    UNDERSTAND --> SEARCH["語意搜尋與推薦"]
-    UNDERSTAND --> MODERATION["內容審核"]
-    UNDERSTAND --> SCIENCE["科學研究"]
+    subgraph MAKE["製作成品"]
+        direction TB
+        CODE["程式開發｜Codex Spark"]
+        IMAGE["圖片｜Sunburst / Flare"]
+        CODE ~~~ IMAGE
+    end
+    subgraph TALK["即時互動"]
+        direction TB
+        VOICE["對話｜Live / Realtime"]
+        TRANSLATE["翻譯｜Realtime-Translate"]
+        VOICE ~~~ TRANSLATE
+    end
+    subgraph UNDERSTAND["理解與判斷"]
+        direction TB
+        SEARCH["搜尋推薦｜Embedding 3"]
+        MODERATION["審核｜omni-moderation"]
+        SCIENCE["生命科學｜GPT-Rosalind"]
+        SEARCH ~~~ MODERATION ~~~ SCIENCE
+    end
 ```
+
+圖中採用短名；完整型號與來源見下方。三組依用途整理，方便閱讀。
 
 **選一條路閱讀：** [製作成品](#製作成品) · [即時互動](#即時互動) · [理解與判斷](#理解與判斷)
 
