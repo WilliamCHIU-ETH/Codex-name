@@ -31,6 +31,7 @@ flowchart LR
         SCIENCE["生命科學｜GPT-Rosalind"]
         SEARCH ~~~ MODERATION ~~~ SCIENCE
     end
+    MAKE ~~~ TALK ~~~ UNDERSTAND
 ```
 
 圖中採用短名；完整型號與來源見下方。三組依用途整理，方便閱讀。
